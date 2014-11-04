@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Carro implements Serializable{
@@ -15,10 +17,8 @@ public class Carro implements Serializable{
 	private int idCarro;
 	@Column(nullable=false)
 	private int ano;
-	@Column
+	@Column(length=8)
 	private String placa;
-	@Column
-	private String cor;
 	@Column
 	private String combustivel;
 	@Column
@@ -29,6 +29,12 @@ public class Carro implements Serializable{
 	private String RENAVAN;
 	@Column
 	private double valorLocacao;
+	
+	private double preco;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName="idModelo",name="fkModelo")
+	private Modelo modelo;
 	
 	public int getIdCarro() {
 		return idCarro;
@@ -48,12 +54,7 @@ public class Carro implements Serializable{
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
-	public String getCor() {
-		return cor;
-	}
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
+	
 	public String getCombustivel() {
 		return combustivel;
 	}
@@ -83,6 +84,12 @@ public class Carro implements Serializable{
 	}
 	public void setValorLocacao(double valorLocacao) {
 		this.valorLocacao = valorLocacao;
+	}
+	public double getPreco() {
+		return preco;
+	}
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 	
 }

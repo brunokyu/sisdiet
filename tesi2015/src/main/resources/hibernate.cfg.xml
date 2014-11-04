@@ -11,5 +11,7 @@
   <property name="hibernate.hbm2ddl.auto">update</property>
   <property name="hibernate.show_sql">true</property>
   <mapping class="util.Carro"/>
+  <mapping class="util.Marca"/>
+  <mapping class="util.Modelo"/>
  </session-factory>
 </hibernate-configuration>

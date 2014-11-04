@@ -9,9 +9,9 @@ public class TestaCarro {
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		s.beginTransaction();
 		Carro c = new Carro();
-		c.setAno(2014);
-		c.setCombustivel("Flex");
-		c.setPlaca("MZZ-5999");
+		c.setAno(2016);
+		c.setCombustivel("TESTE2");
+		c.setPlaca("MBB-8888");
 		s.save(c);
 		s.getTransaction().commit();
 		s.close();
