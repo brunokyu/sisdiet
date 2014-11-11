@@ -92,4 +92,7 @@ public class Carro implements Serializable{
 		this.preco = preco;
 	}
 	
+	public String toString(){
+		return "id: "+getIdCarro()+", placa: "+getPlaca()+", ano:"+getAno() ;
+	}
 }
