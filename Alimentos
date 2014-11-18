@@ -40,4 +40,19 @@ this.Porcao = Porcao;
 public float getCal() {
 return Cal;
 }
+
+
+
+public void CadastraAlimento(){
+
+}
+public void AlteraAlimento(){
+
+}
+
+
+public void ExcluiAlimento(){
+
+}
+
 }
