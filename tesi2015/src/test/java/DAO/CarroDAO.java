@@ -1,6 +1,8 @@
 package DAO;
 
+import java.io.Serializable;
 import java.util.List;
+
 
 
 
@@ -26,18 +28,40 @@ public class CarroDAO extends MasterDAO{
 	}
 	//deletar
 	public void deletarCarro(Carro carro){
-		Session s = getSession();
-		s.beginTransaction();
-		s.delete(carro);
-		s.getTransaction().commit();
-		s.close();
+		deletarObjeto(carro);
 	}
-	//listar
+	//listar todos os carros
 	public List<Carro> listarCarro(){
 		Session s = getSession();
 		s.beginTransaction();
 		Query qr = s.createQuery("from Carro c");
 		List<Carro> listaCarro = qr.list();
+		s.close();
 		return listaCarro;
 	}
+	
+	public Carro getCarro(int idCarro){
+		Session s = getSession();
+		s.beginTransaction();
+		Carro c = (Carro) s.get(Carro.class, idCarro);
+		s.getTransaction().commit();
+		s.close();
+		return c;
+	}
+	
+	public List<Carro> buscarPorPlaca(String placa){
+		Session s = getSession();
+		s.beginTransaction();
+		Query qr = s.createQuery("from Carro c where c.placa like :p");
+		qr.setParameter("%"+placa+"%", "p");
+		List<Carro> listaCarros = qr.list();
+		s.close();
+		return listaCarros;
+	}
+	
+
+	
 }
+
+
+
