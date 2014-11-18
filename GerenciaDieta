@@ -1,0 +1,45 @@
+package util;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class GerenciaDieta implements Serializable{
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+private int idUsuario;
+@Column
+private int idItem;
+
+private float CalTotal;
+
+private float IMC;
+
+private date;
+
+
+public int getidUsuario() {
+return idUsuario;
+}
+public void setidUsuario(int idUsuario) {
+this.idUsuario = idUsuario;
+}
+public int idItem() {
+return idItem;
+}
+public void setidItem(int idItem) {
+this.idItem = idItem;
+}
+public float getCalTotal() {
+return CalTotal;
+}
+public void setCalTotal(String CalTotal) {
+this.CalTotal = CalTotal;
+}
+public float getIMC() {
+return IMC;
+}
+}
