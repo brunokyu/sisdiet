@@ -1,0 +1,43 @@
+package util;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Alimentos implements Serializable{
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+private int idAlimento;
+@Column
+private String NomeAlimento;
+@Column
+private String Porcao;
+@Column
+private float Cal;
+
+
+public int getidAlimento() {
+return idAlimento;
+}
+public void setidAlimento(int idAlimento) {
+this.idAlimento = idAlimento;
+}
+public String NomeAlimento() {
+return NomeAlimento;
+}
+public void setNomeAlimento(String NomeAlimento) {
+this.NomeAlimento = NomeAlimento;
+}
+public String getPorcao() {
+return Porcao;
+}
+public void setPorcao(String Porcao) {
+this.Porcao = Porcao;
+}
+public float getCal() {
+return Cal;
+}
+}
