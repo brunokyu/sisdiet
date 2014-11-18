@@ -82,4 +82,17 @@ return Sexo;
 public void setSexo(String Sexo) {
 this.Sexo = Sexo;
 }
+
+public void ChecaLogin(login, senha){
+
+}
+
+public void CadastraUsuario(){
+
+}
+
+public void AlteraUsuario(){
+
+}
+
 }
