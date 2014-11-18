@@ -16,7 +16,7 @@ private int idItem;
 
 private float CalTotal;
 
-private float IMC;
+
 
 private date;
 
@@ -39,7 +39,19 @@ return CalTotal;
 public void setCalTotal(String CalTotal) {
 this.CalTotal = CalTotal;
 }
-public float getIMC() {
-return IMC;
+public void CalcTMB (peso, altura){
+
+if (Homem == true){ 
+tmb = 88.362 + (13.397 x peso) + (4.799 x altura) - (5.677 x idade)
+}else
+
+if(Mulher == true){
+tmb = 447.593 + (9.247 x peso) + (3.098 x altura) - (4.330 x idade)
+}
+
+}
+
+public void CalcCal(alimentos){
+
 }
 }
