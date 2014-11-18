@@ -47,7 +47,21 @@ tmb = 88.362 + (13.397 x peso) + (4.799 x altura) - (5.677 x idade)
 
 if(Mulher == true){
 tmb = 447.593 + (9.247 x peso) + (3.098 x altura) - (4.330 x idade)
+
 }
+switch (exercicio) {
+ 
+ case 1:  tmb = tmb * 1.375;
+ break;
+ case 2:  tmb = tmb * 1.55;
+ break;
+ case 3:  tmb = tmb * 1.725;
+ break;
+ case 4:  tmb = tmb * 1.9;
+ break;
+ default: tmb = tmb * 1.2;
+ break;
+ }
 
 }
 
