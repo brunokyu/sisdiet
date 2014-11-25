@@ -32,7 +32,7 @@ public class ModeloDAO extends MasterDAO{
 		Session s = getSession();
 		s.beginTransaction();
 		Query qr = s.createQuery("from Modelo m where m.descModelo like :mo");
-		qr.setParameter("%"+str+"%", "mo");
+		qr.setParameter("mo","%"+str+"%");
 		List<Modelo> listaModelo = qr.list();
 		s.getTransaction().commit();
 		s.close();

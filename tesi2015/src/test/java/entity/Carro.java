@@ -95,4 +95,26 @@ public class Carro implements Serializable{
 	public String toString(){
 		return "id: "+getIdCarro()+", placa: "+getPlaca()+", ano:"+getAno() ;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idCarro;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Carro other = (Carro) obj;
+		if (idCarro != other.idCarro)
+			return false;
+		return true;
+	}
+	
+	
 }

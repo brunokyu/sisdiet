@@ -26,6 +26,15 @@ public class Modelo implements Serializable{
 	@JoinColumn(referencedColumnName="idMarca",name="fkMarca")
 	private Marca marca;
 	
+	
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
+	}
+
 	public List<Carro> getCarros() {
 		return carros;
 	}

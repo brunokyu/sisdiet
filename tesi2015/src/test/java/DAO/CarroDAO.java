@@ -52,8 +52,8 @@ public class CarroDAO extends MasterDAO{
 	public List<Carro> buscarPorPlaca(String placa){
 		Session s = getSession();
 		s.beginTransaction();
-		Query qr = s.createQuery("from Carro c where c.placa like :p");
-		qr.setParameter("%"+placa+"%", "p");
+		Query qr = s.createQuery("from Carro c where c.placa like :pa");
+		qr.setParameter("pa","%"+placa+"%");
 		List<Carro> listaCarros = qr.list();
 		s.close();
 		return listaCarros;
