@@ -11,8 +11,8 @@ import DAO.ModeloDAO;
 @SessionScoped
 public class ModeloBean {
 	private ModeloDAO modeloDAO = new ModeloDAO();
-	private Modelo modelo = new Modelo();
-	private Marca marca = new Marca();
+	private Modelo modelo;
+	private Marca marca;
 	
 	public String inserirModelo(){
 		marca.setIdMarca(1);
@@ -30,6 +30,10 @@ public class ModeloBean {
 	}
 
 	public Modelo getModelo() {
+		if(modelo == null){
+			marca = new Marca();
+			modelo = new Modelo();
+		}
 		return modelo;
 	}
 

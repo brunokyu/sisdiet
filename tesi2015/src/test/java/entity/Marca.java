@@ -1,5 +1,6 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
-public class Marca {
+public class Marca implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idMarca;
@@ -41,6 +42,27 @@ public class Marca {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idMarca;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Marca other = (Marca) obj;
+		if (idMarca != other.idMarca)
+			return false;
+		return true;
+	}
+	
 	
 	
 }
