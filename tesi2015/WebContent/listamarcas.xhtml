@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Lista de Marcas</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable var="m" value="#{marcaBean.listaMarcas}"
+		rows="2"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">>
+			<p:column headerText="IdMarca">
+				<p:outputLabel value="#{m.idMarca}"></p:outputLabel>
+			</p:column>
+			<p:column headerText="Descrição">
+				<p:outputLabel value="#{m.descMarca}"></p:outputLabel>
+			</p:column>
+			<p:column headerText="Deletar">
+				<h:commandLink value="Deletar" action="#{marcaBean.deletarMarca}">
+					<f:setPropertyActionListener value="#{m}" target="#{marcaBean.marca}"></f:setPropertyActionListener>
+				</h:commandLink>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
