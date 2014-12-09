@@ -2,8 +2,12 @@ package manageBean;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.event.RowEditEvent;
 
 import DAO.MarcaDAO;
 import entity.Marca;
@@ -42,4 +46,17 @@ public class MarcaBean {
 		listaMarca = null;
 		return "listamarcas";
 	}
+	
+	public void atualizarMarca(RowEditEvent evento){
+		marca = (Marca)evento.getObject();
+		marcaDAO.atualizarMarca(marca);
+	}
+	
+	public void cancelarMarca(RowEditEvent evento){
+		FacesMessage msg = new FacesMessage("Edição Cancelada");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
 }
+
+
+
