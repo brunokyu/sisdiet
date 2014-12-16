@@ -33,8 +33,22 @@ public class MarcaBean {
 		this.marca = marca;
 	}
 	
-	private List<Marca> listaMarca;
+	private List<Marca> listaMarca = null;
 	
+	private List<Marca> filtroLista = null;
+	
+	public List<Marca> getFiltroLista() {
+		return filtroLista;
+	}
+
+	public void setFiltroLista(List<Marca> filtroLista) {
+		this.filtroLista = filtroLista;
+	}
+	
+	public void setListaMarca(List<Marca> listaMarca) {
+		this.listaMarca = listaMarca;
+	}
+
 	public List<Marca> getListaMarcas(){
 		if(listaMarca == null)
 			listaMarca = marcaDAO.listarMarca();
@@ -56,6 +70,8 @@ public class MarcaBean {
 		FacesMessage msg = new FacesMessage("Edição Cancelada");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
+
+
 }
 
 
