@@ -2,13 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
 	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:f="http://java.sun.com/jsf/core">
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
 <h:head>
 </h:head>
 <h:body>
 	<h:form id="formModelo">
 		<h:outputLabel value="Modelo:"></h:outputLabel>
 		<h:inputText value="#{modeloBean.modelo.descModelo}"></h:inputText>
+		<p:selectOneMenu value="#{modeloBean.modelo.marca}" converter="marcaConverter">
+			<f:selectItems value="#{marcaBean.listaMarcas}" var="ma" 
+						   itemLabel="#{ma.descMarca}" itemValue="#{ma}"></f:selectItems>
+		</p:selectOneMenu>
 		<h:commandButton value="Inserir Modelo" action="#{modeloBean.inserirModelo}"></h:commandButton>
 	</h:form>
 </h:body>

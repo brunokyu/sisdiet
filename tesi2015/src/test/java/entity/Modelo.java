@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 public class Modelo implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int idModelo;
+	private Integer idModelo;
 	
 	private String descModelo;
 	
@@ -59,7 +59,8 @@ public class Modelo implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idModelo;
+		result = prime * result
+				+ ((idModelo == null) ? 0 : idModelo.hashCode());
 		return result;
 	}
 
@@ -72,9 +73,14 @@ public class Modelo implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Modelo other = (Modelo) obj;
-		if (idModelo != other.idModelo)
+		if (idModelo == null) {
+			if (other.idModelo != null)
+				return false;
+		} else if (!idModelo.equals(other.idModelo))
 			return false;
 		return true;
 	}
+
+	
 	
 }

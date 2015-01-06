@@ -9,7 +9,7 @@ import entity.Modelo;
 
 public class ModeloDAO extends MasterDAO{
 	public void inserirModelo(Modelo modelo){
-		inserirModelo(modelo);
+		inserirObjeto(modelo);
 	}
 	
 	public void deletarModelo(Modelo modelo){

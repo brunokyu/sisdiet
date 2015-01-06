@@ -15,8 +15,7 @@ public class ModeloBean {
 	private Marca marca;
 	
 	public String inserirModelo(){
-		marca.setIdMarca(1);
-		modelo.setMarca(marca);
+		//System.out.println("Modelo: "+getModelo().getMarca());
 		modeloDAO.inserirModelo(modelo);
 		return "listamodelos";
 	}
@@ -31,7 +30,7 @@ public class ModeloBean {
 
 	public Modelo getModelo() {
 		if(modelo == null){
-			marca = new Marca();
+			setMarca(new Marca());
 			modelo = new Modelo();
 		}
 		return modelo;
@@ -39,6 +38,14 @@ public class ModeloBean {
 
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
+	}
+
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
 	}
 	
 	
