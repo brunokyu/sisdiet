@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Lista de Alimentos</title>
+</h:head>
+
+<ui:composition template="/template/principal.xhtml">
+	<ui:define name="content">
+		<h:body>
+			<h:form id="formCadAlimentos">
+				<p:dialog widgetVar="dlgCadAlimentos" modal="true">
+					<h:outputLabel value="Descrição:"></h:outputLabel>
+					<h:inputText id="desc" value="#{AlimentosBean.alimentos.descAlimentos}"></h:inputText>
+					<h:commandButton value="Inserir Alimentos"
+						action="#{alimentosBean.inserirAlimentos}"></h:commandButton>
+				</p:dialog>
+			</h:form>
+
+			<h:form id="formListaAlimentos">
+				<p:commandButton value="Inserir Alimentos"
+					onclick="PF('dlgCadAlimentos').show()" update=":formCadAlimentos:desc"
+					process="@this">
+					<p:resetInput target=":formCadAlimentos:desc"></p:resetInput>
+				</p:commandButton>
+				<p:growl id="msg" showDetail="true"></p:growl>
+				<p:dataTable var="a" value="#{alimentosBean.listaAlimentos}" rows="5"
+					editable="true" paginator="true"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15" filteredValue="#{marcaBean.filtroLista}">
+					<p:ajax event="rowEdit" listener="#{alimentosBean.atualizarAlimentos}"></p:ajax>
+					<p:ajax event="rowEditCancel" listener="#{alimentosBean.cancelarAlimentos}"
+						update=":formListaAlimentos:msg"></p:ajax>
+					<p:column headerText="IdAlimentos">
+						<p:outputLabel value="#{a.idAlimentos}"></p:outputLabel>
+					</p:column>
+
+					<p:column headerText="Descrição" filterBy="#{a.descAlimentos}" filterMatchMode="contains">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:outputLabel value="#{a.descAlimentos}"></p:outputLabel>
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{a.descAlimentos}"></p:inputText>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Atualizar">
+						<p:rowEditor></p:rowEditor>
+					</p:column>
+
+					<p:column headerText="Deletar">
+						<h:commandLink action="#{alimentosBean.deletarAlimentos}">
+							<p:graphicImage value="/imagens/update.png" style="border:0"></p:graphicImage>
+							<f:setPropertyActionListener value="#{m}"
+								target="#{alimentosBean.alimentos}"></f:setPropertyActionListener>
+						</h:commandLink>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
+
+</html>

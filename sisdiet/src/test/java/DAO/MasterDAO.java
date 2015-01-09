@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import util.HibernateUtil;
-import entity.Carro;
+import entity.Alimentos;
 
 public class MasterDAO {
 	public Session getSession(){
