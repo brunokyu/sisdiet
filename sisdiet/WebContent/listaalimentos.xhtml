@@ -14,7 +14,7 @@
 			<h:form id="formCadAlimentos">
 				<p:dialog widgetVar="dlgCadAlimentos" modal="true">
 					<h:outputLabel value="Descrição:"></h:outputLabel>
-					<h:inputText id="desc" value="#{AlimentosBean.alimentos.descAlimentos}"></h:inputText>
+					<h:inputText id="desc" value="#{AlimentosBean.alimentos.descAlimento}"></h:inputText>
 					<h:commandButton value="Inserir Alimentos"
 						action="#{alimentosBean.inserirAlimentos}"></h:commandButton>
 				</p:dialog>
@@ -34,17 +34,17 @@
 					<p:ajax event="rowEdit" listener="#{alimentosBean.atualizarAlimentos}"></p:ajax>
 					<p:ajax event="rowEditCancel" listener="#{alimentosBean.cancelarAlimentos}"
 						update=":formListaAlimentos:msg"></p:ajax>
-					<p:column headerText="IdAlimentos">
-						<p:outputLabel value="#{a.idAlimentos}"></p:outputLabel>
+					<p:column headerText="IdAlimento">
+						<p:outputLabel value="#{a.idAlimento}"></p:outputLabel>
 					</p:column>
 
-					<p:column headerText="Descrição" filterBy="#{a.descAlimentos}" filterMatchMode="contains">
+					<p:column headerText="Descrição" filterBy="#{a.descAlimento}" filterMatchMode="contains">
 						<p:cellEditor>
 							<f:facet name="output">
-								<p:outputLabel value="#{a.descAlimentos}"></p:outputLabel>
+								<p:outputLabel value="#{a.descAlimento}"></p:outputLabel>
 							</f:facet>
 							<f:facet name="input">
-								<p:inputText value="#{a.descAlimentos}"></p:inputText>
+								<p:inputText value="#{a.descAlimento}"></p:inputText>
 							</f:facet>
 						</p:cellEditor>
 					</p:column>
