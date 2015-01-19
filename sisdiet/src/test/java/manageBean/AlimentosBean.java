@@ -68,7 +68,7 @@ public class AlimentosBean {
 		alimentosDAO.atualizarAlimentos(alimentos);
 	}
 	
-	public void cancelarAlimento(RowEditEvent evento){
+	public void cancelarAlimentos(RowEditEvent evento){
 		FacesMessage msg = new FacesMessage("Edição Cancelada");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}

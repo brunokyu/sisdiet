@@ -5,8 +5,12 @@
 	  
 <h:body>
 	<h:form>
+		<h:outputLabel value="Nome do Alimento:"></h:outputLabel>
+		<h:inputText value="#{alimentosBean.alimentos.nomeAlimento}"></h:inputText>
 		<h:outputLabel value="Descrição:"></h:outputLabel>
-		<h:inputText value="#{alimentosBean.alimentos.descAlimentos}"></h:inputText>
+		<h:inputText value="#{alimentosBean.alimentos.descAlimento}"></h:inputText>
+		<h:outputLabel value="Calorias:"></h:outputLabel>
+		<h:inputText value="#{alimentosBean.alimentos.calAlimento}"></h:inputText>
 		<h:commandButton value="Inserir alimentos" action="#{alimentosBean.inserirAlimentos}"></h:commandButton>
 	</h:form>
 </h:body>

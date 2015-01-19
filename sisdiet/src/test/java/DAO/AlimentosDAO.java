@@ -10,20 +10,20 @@ import entity.Alimentos;;
 public class AlimentosDAO extends MasterDAO {
 	
 	//inserir
-	public void inserirAlimentos(Alimentos alimento){
-		inserirObjeto(alimento);
+	public void inserirAlimentos(Alimentos alimentos){
+		inserirObjeto(alimentos);
 	}
 	//atualizar
-	public void atualizarAlimentos(Alimentos alimento){
+	public void atualizarAlimentos(Alimentos alimentos){
 		Session s = getSession();
 		s.beginTransaction();
-		s.update(alimento);
+		s.update(alimentos);
 		s.getTransaction().commit();
 		s.close();
 	}
 	//deletar
-	public void deletarAlimentos(Alimentos alimento){
-		deletarObjeto(alimento);
+	public void deletarAlimentos(Alimentos alimentos){
+		deletarObjeto(alimentos);
 	}
 	//listar todos os Alimentos
 	public List<Alimentos> listarAlimentos(){
