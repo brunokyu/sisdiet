@@ -19,7 +19,7 @@ public class Alimentos implements Serializable {
 	@Column
 	private String DescAlimento;
 	@Column
-	private double QuantAlimento;
+	private double CalAlimento;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -62,11 +62,11 @@ public class Alimentos implements Serializable {
 	public void setDescAlimento(String descAlimento) {
 		DescAlimento = descAlimento;
 	}
-	public double getQuantAlimento() {
-		return QuantAlimento;
+	public double getCalAlimento() {
+		return CalAlimento;
 	}
-	public void setQuantAlimento(double quantAlimento) {
-		QuantAlimento = quantAlimento;
+	public void setCalAlimento(double CalAlimento) {
+		CalAlimento = CalAlimento;
 	}
 	
 }

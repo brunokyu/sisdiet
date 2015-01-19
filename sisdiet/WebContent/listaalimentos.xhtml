@@ -13,10 +13,14 @@
 		<h:body>
 			<h:form id="formCadAlimentos">
 				<p:dialog widgetVar="dlgCadAlimentos" modal="true">
+					<h:outputLabel value="Nome do Alimento:"></h:outputLabel>
+					<h:inputText id="nome" value="#{AlimentosBean.alimentos.nomeAlimento}"></h:inputText>
 					<h:outputLabel value="Descrição:"></h:outputLabel>
 					<h:inputText id="desc" value="#{AlimentosBean.alimentos.descAlimento}"></h:inputText>
+					<h:outputLabel value="Descrição:"></h:outputLabel>
+					<h:inputText id="cal" value="#{AlimentosBean.alimentos.calAlimento}"></h:inputText>
 					<h:commandButton value="Inserir Alimentos"
-						action="#{alimentosBean.inserirAlimentos}"></h:commandButton>
+						action="#{alimentosBean.inserirAlimento}"></h:commandButton>
 				</p:dialog>
 			</h:form>
 
@@ -24,7 +28,9 @@
 				<p:commandButton value="Inserir Alimentos"
 					onclick="PF('dlgCadAlimentos').show()" update=":formCadAlimentos:desc"
 					process="@this">
+					<p:resetInput target=":formCadAlimentos:nome"></p:resetInput>
 					<p:resetInput target=":formCadAlimentos:desc"></p:resetInput>
+					<p:resetInput target=":formCadAlimentos:cal"></p:resetInput>
 				</p:commandButton>
 				<p:growl id="msg" showDetail="true"></p:growl>
 				<p:dataTable var="a" value="#{alimentosBean.listaAlimentos}" rows="5"

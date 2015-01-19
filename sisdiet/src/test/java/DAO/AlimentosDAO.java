@@ -25,7 +25,7 @@ public class AlimentosDAO extends MasterDAO {
 	public void deletarAlimentos(Alimentos alimento){
 		deletarObjeto(alimento);
 	}
-	//listar todos os carros
+	//listar todos os Alimentos
 	public List<Alimentos> listarAlimentos(){
 		Session s = getSession();
 		s.beginTransaction();
