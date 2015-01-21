@@ -79,7 +79,7 @@ break;
 			/*itemdieta.calcCalorias = <alimento.caloria 1+ alimento.caloria 2+ ... + alimento.caloria n>
 			
 				se CalcCal > (Bmr * exercício)
-					mudar label para vermelho
+					mudar label para svermelho
 				senão se CalcCal < (Bmr * exercício)
 					mudar label para verde
 					
