@@ -15,11 +15,7 @@ public class AlimentosDAO extends MasterDAO {
 	}
 	//atualizar
 	public void atualizarAlimentos(Alimentos alimentos){
-		Session s = getSession();
-		s.beginTransaction();
-		s.update(alimentos);
-		s.getTransaction().commit();
-		s.close();
+		atualizarObjeto(alimentos);
 	}
 	//deletar
 	public void deletarAlimentos(Alimentos alimentos){

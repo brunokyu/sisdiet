@@ -20,6 +20,8 @@ public class Alimentos implements Serializable {
 	private String DescAlimento;
 	@Column
 	private double CalAlimento;
+	@Column
+	private String porcao; 
 	@Override
 	public int hashCode() {
 		final int prime = 31;

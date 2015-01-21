@@ -16,11 +16,13 @@
 					<h:outputLabel value="Nome do Alimento:"></h:outputLabel>
 					<h:inputText id="nome" value="#{AlimentosBean.alimentos.nomeAlimento}"></h:inputText>
 					<h:outputLabel value="Descrição:"></h:outputLabel>
+					<h:inputText id="porcao" value="#{AlimentosBean.alimentos.porcao}"></h:inputText>
+					<h:outputLabel value="Descrição:"></h:outputLabel>
 					<h:inputText id="desc" value="#{AlimentosBean.alimentos.descAlimento}"></h:inputText>
 					<h:outputLabel value="Calorias:"></h:outputLabel>
 					<h:inputText id="cal" value="#{AlimentosBean.alimentos.calAlimento}"></h:inputText>
 					<h:commandButton value="Inserir Alimentos"
-						action="#{alimentosBean.inserirAlimento}"></h:commandButton>
+						action="#{alimentosBean.inserirAlimentos}"></h:commandButton>
 				</p:dialog>
 			</h:form>
 
@@ -29,19 +31,37 @@
 					onclick="PF('dlgCadAlimentos').show()" update=":formCadAlimentos:desc"
 					process="@this">
 					<p:resetInput target=":formCadAlimentos:nome"></p:resetInput>
+					<p:resetInput target=":formCadAlimentos:porcao"></p:resetInput>
 					<p:resetInput target=":formCadAlimentos:desc"></p:resetInput>
 					<p:resetInput target=":formCadAlimentos:cal"></p:resetInput>
 				</p:commandButton>
 				<p:growl id="msg" showDetail="true"></p:growl>
-				<p:dataTable var="a" value="#{alimentosBean.listaAlimentos}" rows="5"
+				<p:dataTable var="a" value="#{alimentosBean.listaAlimentos}" rows="15"
 					editable="true" paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="5,10,15" filteredValue="#{marcaBean.filtroLista}">
 					<p:ajax event="rowEdit" listener="#{alimentosBean.atualizarAlimentos}"></p:ajax>
 					<p:ajax event="rowEditCancel" listener="#{alimentosBean.cancelarAlimentos}"
 						update=":formListaAlimentos:msg"></p:ajax>
-					<p:column headerText="IdAlimento">
-						<p:outputLabel value="#{a.idAlimento}"></p:outputLabel>
+					<p:column headerText="Nome do Alimento">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:outputLabel value="#{a.nomeAlimento}"></p:outputLabel>
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{a.nomeAlimento}"></p:inputText>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					<p:column headerText="Porção do Alimento">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:outputLabel value="#{a.porcao}"></p:outputLabel>
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{a.porcao}"></p:inputText>
+							</f:facet>
+						</p:cellEditor>
 					</p:column>
 
 					<p:column headerText="Descrição" filterBy="#{a.descAlimento}" filterMatchMode="contains">

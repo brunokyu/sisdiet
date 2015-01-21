@@ -1,5 +1,24 @@
 package DAO;
 
-public class ItemDietaDAO {
+import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import entity.Alimentos;
+
+public class ItemDietaDAO extends MasterDAO{
+
+	
+	public List<Alimentos> listarAlimentos(){
+		Session s = getSession();
+		s.beginTransaction();
+		Query qr = s.createQuery("from Alimentos a");
+		List<Alimentos> listaAlimentos = qr.list();
+		s.close();
+		return listaAlimentos;
+	}
+	
+	
+	
 }
