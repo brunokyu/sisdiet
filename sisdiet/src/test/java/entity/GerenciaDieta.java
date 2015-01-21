@@ -41,16 +41,34 @@ if(sexo == "Mulher"){
 usuario.setTmb(447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade));
 }
 
+
+/*criar segunda lista. Como pegaria alimentos da lista de alimentos GERAL, 
+para tranferir para a lista2, */
+
+
+/*lista2 é atrelada ao usuário ou itemdieta(que é o menu de alimentos escolhido pelo usuario)?*/
+
+/*lista 2 é a lista de alimentos da dieta DA PESSOA, tem que ter os alimentos que ela escolheu,
+e calcular a quantidade de calorias (onde?)*/
+
+//tmb seria calculado na hora sem passar para o banco?
+
+/*Rsposta: Criar a DIETA em si, em que cada item da dieta seria um id de um alimento, que por sua vez viria de Alimentos.
+ *Na DIETA, ficaria a data que a dieta foi feita. Por ex.: Dieta v, foi feita no dia w, contendo os itens x,y,z
+ *O cálculo do tmb e afins pode ser feito na hora, um outputlabel recebendo tipo tmbDoUser*exercicioDoUser, ou um textfield recebendo isso já?
+ **/
+
+
 switch (usuario.getExercicio()) {
-case 1: usuario.setTmb(usuario.getTmbCal() * 1.2);
+case 1: usuario.setTmbCal(usuario.getTmb() * 1.2);
 break;
-case 2: usuario.setTmb(usuario.getTmbCal() * 1.375);
+case 2: usuario.setTmbCal(usuario.getTmb() * 1.375);
 break;
-case 3: usuario.setTmb(usuario.getTmbCal() * 1.55);
+case 3: usuario.setTmbCal(usuario.getTmb() * 1.55);
 break;
-case 4: usuario.setTmb(usuario.getTmbCal() * 1.725);
+case 4: usuario.setTmbCal(usuario.getTmb() * 1.725);
 break;
-case 5: usuario.setTmb(usuario.getTmbCal() * 1.9);
+case 5: usuario.setTmbCal(usuario.getTmb() * 1.9);
 break;
 }
 }

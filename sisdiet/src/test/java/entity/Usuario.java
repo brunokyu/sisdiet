@@ -46,6 +46,8 @@ public class Usuario implements Serializable {
 	private String Sexo;
 	@Column
 	private boolean ativo;
+	
+
 
 	public int getidUser() {
 		return idUser;

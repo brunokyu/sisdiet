@@ -22,6 +22,5 @@ public class ItemDieta implements Serializable{
 private int idUser;
 @Column
 private int idLista;
-@Column
-private Array Alimentos;
+
 }
