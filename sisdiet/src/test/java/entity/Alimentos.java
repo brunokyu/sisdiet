@@ -22,6 +22,12 @@ public class Alimentos implements Serializable {
 	private double CalAlimento;
 	@Column
 	private String porcao; 
+	public String getPorcao() {
+		return porcao;
+	}
+	public void setPorcao(String porcao) {
+		this.porcao = porcao;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -56,19 +62,19 @@ public class Alimentos implements Serializable {
 		return NomeAlimento;
 	}
 	public void setNomeAlimento(String nomeAlimento) {
-		NomeAlimento = nomeAlimento;
+		this.NomeAlimento = nomeAlimento;
 	}
 	public String getDescAlimento() {
 		return DescAlimento;
 	}
 	public void setDescAlimento(String descAlimento) {
-		DescAlimento = descAlimento;
+		this.DescAlimento = descAlimento;
 	}
 	public double getCalAlimento() {
 		return CalAlimento;
 	}
 	public void setCalAlimento(double CalAlimento) {
-		CalAlimento = CalAlimento;
+		this.CalAlimento = CalAlimento;
 	}
 	
 }

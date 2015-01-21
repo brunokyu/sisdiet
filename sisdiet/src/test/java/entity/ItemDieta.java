@@ -14,13 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 
-@Entity
 public class ItemDieta implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-@Column
-private int idUser;
-@Column
-private int idLista;
 
 }
