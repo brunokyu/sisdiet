@@ -14,29 +14,6 @@ public class UsuarioMedidas implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idMed;
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idMed;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UsuarioMedidas other = (UsuarioMedidas) obj;
-		if (idMed != other.idMed)
-			return false;
-		return true;
-	}
-	
 	@Column
 	private double peso;
 	@Column
@@ -66,6 +43,27 @@ public class UsuarioMedidas implements Serializable {
 
 	public void setAltura(double altura) {
 		this.altura = altura;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idMed;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UsuarioMedidas other = (UsuarioMedidas) obj;
+		if (idMed != other.idMed)
+			return false;
+		return true;
 	}
 	
 }

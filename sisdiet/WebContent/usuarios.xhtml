@@ -31,7 +31,18 @@
 
 				<p:ajax event="rowEdit"	listener="#{usuarioBean.atualizarUsuario}" update=":formUsu:messages"/>
 				<p:ajax event="rowEditCancel" listener="#{usuarioBean.cancelar}" update=":formUsu:messages"/>
-				<p:column headerText="Nome dos Usuários" id="idusu">
+				<p:column headerText="Nome dos Usuários" id="NomeUser">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{usuItem.nomeUser}"></p:outputLabel>
+						</f:facet>
+						<f:facet name="input">
+							<h:inputText value="#{usuItem.nomeUser}"  />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				
+				<p:column headerText="Login dos Usuários" id="idusu">
 					<p:cellEditor>
 						<f:facet name="output">
 							<p:outputLabel value="#{usuItem.login}"></p:outputLabel>
@@ -47,7 +58,10 @@
 							<p:outputLabel value="#{usuItem.ativo}"></p:outputLabel>
 						</f:facet>
 						<f:facet name="input">
-							<h:inputText value="#{usuItem.ativo}"  />
+							<p:selectOneMenu id="status" value="#{usuItem.ativo}" style="width:125px">
+            					<f:selectItem itemLabel="Ativo" itemValue="true" />
+            					<f:selectItem itemLabel="Inativo" itemValue="False" />         					
+        					</p:selectOneMenu>
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
@@ -57,7 +71,10 @@
 							<p:outputLabel value="#{usuItem.nivel}"></p:outputLabel>
 						</f:facet>
 						<f:facet name="input">
-							<h:inputText value="#{usuItem.nivel}"  />
+							<p:selectOneMenu id="nivel" value="#{usuItem.nivel}" style="width:125px">
+            					<f:selectItem itemLabel="Admin" itemValue="admin" />
+            					<f:selectItem itemLabel="Usuario" itemValue="usuario" />         					
+        					</p:selectOneMenu>
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
@@ -67,7 +84,10 @@
 							<p:outputLabel value="#{usuItem.sexo}"></p:outputLabel>
 						</f:facet>
 						<f:facet name="input">
-							<h:inputText value="#{usuItem.sexo}"  />
+        					<p:selectOneMenu id="sex" value="#{usuItem.sexo}" style="width:125px">
+            					<f:selectItem itemLabel="Homem" itemValue="Homem" />
+            					<f:selectItem itemLabel="Mulher" itemValue="Mulher" />         					
+        					</p:selectOneMenu>
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
@@ -95,7 +115,10 @@
 			<h:panelGrid id="panelUsuario" columns="2"
 				style="margin-bottom:10px">
 				<h:outputLabel for="name" value="Nome" />
-				<p:inputText id="name" value="#{usuarioBean.usu.login}" required="true">
+				<p:inputText id="name" value="#{usuarioBean.usu.nomeUser}" required="true">
+				</p:inputText>
+				<h:outputLabel for="login" value="Login" />
+				<p:inputText id="login" value="#{usuarioBean.usu.login}" required="true">
 				</p:inputText>
 				<h:outputLabel for="pass" value="Senha" />
 				<p:password id="pass" value="#{usuarioBean.usu.senha}" redisplay="false" required="true"></p:password>

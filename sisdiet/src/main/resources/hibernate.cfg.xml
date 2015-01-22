@@ -14,5 +14,6 @@
   <mapping class="entity.GerenciaDieta"/>
   <mapping class="entity.ItemDieta"/>
   <mapping class="entity.Usuario"/>
+  <mapping class="entity.UsuarioMedidas"/>
  </session-factory>
 </hibernate-configuration>

@@ -12,17 +12,19 @@
 	<ui:define name="content">
 		<h:body>
 			<h:form id="formCadAlimentos">
-				<p:dialog widgetVar="dlgCadAlimentos" modal="true">
+				<p:dialog header="Cadastro de Alimentos" widgetVar="dlgCadAlimentos" modal="true" resizable="false" showEffect="slide" width="500">
+					<h:panelGrid id="panelUsuario" columns="2" style="margin-bottom:10px">
 					<h:outputLabel value="Nome do Alimento:"></h:outputLabel>
-					<h:inputText id="nome" value="#{AlimentosBean.alimentos.nomeAlimento}"></h:inputText>
+					<h:inputText id="nome" value="#{alimentosBean.alimentos.nomeAlimento}"></h:inputText>
+					<h:outputLabel value="Porção:"></h:outputLabel>
+					<h:inputText id="porcao" value="#{alimentosBean.alimentos.porcao}"></h:inputText>
 					<h:outputLabel value="Descrição:"></h:outputLabel>
-					<h:inputText id="porcao" value="#{AlimentosBean.alimentos.porcao}"></h:inputText>
-					<h:outputLabel value="Descrição:"></h:outputLabel>
-					<h:inputText id="desc" value="#{AlimentosBean.alimentos.descAlimento}"></h:inputText>
+					<h:inputText id="desc" value="#{alimentosBean.alimentos.descAlimento}"></h:inputText>
 					<h:outputLabel value="Calorias:"></h:outputLabel>
-					<h:inputText id="cal" value="#{AlimentosBean.alimentos.calAlimento}"></h:inputText>
+					<h:inputText id="cal" value="#{alimentosBean.alimentos.calAlimento}"></h:inputText>
 					<h:commandButton value="Inserir Alimentos"
 						action="#{alimentosBean.inserirAlimentos}"></h:commandButton>
+					</h:panelGrid>
 				</p:dialog>
 			</h:form>
 
@@ -47,6 +49,7 @@
 						<p:cellEditor>
 							<f:facet name="output">
 								<p:outputLabel value="#{a.nomeAlimento}"></p:outputLabel>
+
 							</f:facet>
 							<f:facet name="input">
 								<p:inputText value="#{a.nomeAlimento}"></p:inputText>
@@ -92,7 +95,7 @@
 
 					<p:column headerText="Deletar">
 						<h:commandLink action="#{alimentosBean.deletarAlimentos}">
-							<p:graphicImage value="/imagens/update.png" style="border:0"></p:graphicImage>
+							<p:graphicImage value="/imagens/remove.gif" style="border:0"></p:graphicImage>
 							<f:setPropertyActionListener value="#{a}"
 								target="#{alimentosBean.alimentos}"></f:setPropertyActionListener>
 						</h:commandLink>
