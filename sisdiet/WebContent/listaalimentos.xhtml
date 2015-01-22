@@ -63,6 +63,17 @@
 							</f:facet>
 						</p:cellEditor>
 					</p:column>
+					
+					<p:column headerText="Calorias" filterBy="#{a.calAlimento}">
+						<p:cellEditor>
+							<f:facet name="output">
+								<p:outputLabel value="#{a.calAlimento}  Kcal"></p:outputLabel>
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{a.calAlimento}"></p:inputText>
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
 
 					<p:column headerText="Descrição" filterBy="#{a.descAlimento}" filterMatchMode="contains">
 						<p:cellEditor>
@@ -82,7 +93,7 @@
 					<p:column headerText="Deletar">
 						<h:commandLink action="#{alimentosBean.deletarAlimentos}">
 							<p:graphicImage value="/imagens/update.png" style="border:0"></p:graphicImage>
-							<f:setPropertyActionListener value="#{m}"
+							<f:setPropertyActionListener value="#{a}"
 								target="#{alimentosBean.alimentos}"></f:setPropertyActionListener>
 						</h:commandLink>
 					</p:column>

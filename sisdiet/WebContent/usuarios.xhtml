@@ -5,7 +5,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
+<h:head>
+	<title>Lista de Usuarios</title>
+</h:head>
+<ui:composition template="/template/principal.xhtml">
+<ui:define name="content">
 <h:body>
 	<h:form>
 		<p:commandButton id="showDialogButton" value="Adicionar Usuário"
@@ -37,6 +41,36 @@
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
+				<p:column headerText="Status Usuario" id="Status">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{usuItem.ativo}"></p:outputLabel>
+						</f:facet>
+						<f:facet name="input">
+							<h:inputText value="#{usuItem.ativo}"  />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Nivel Usuario" id="Nivel">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{usuItem.nivel}"></p:outputLabel>
+						</f:facet>
+						<f:facet name="input">
+							<h:inputText value="#{usuItem.nivel}"  />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="Sexo Usuario" id="Sex">
+					<p:cellEditor>
+						<f:facet name="output">
+							<p:outputLabel value="#{usuItem.sexo}"></p:outputLabel>
+						</f:facet>
+						<f:facet name="input">
+							<h:inputText value="#{usuItem.sexo}"  />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
 				<p:column headerText="Atualizar" >
 					<p:rowEditor />
 				</p:column>
@@ -45,7 +79,7 @@
   						action="#{usuarioBean.deletarUsuario}"
 						update=":formUsu:messages tabelaUsu" ajax="true">
 						<h:graphicImage alt="Deletar Usuario"
-							value="/imagens/update.png" style="border:0"/>
+							value="/imagens/remove.gif" style="border:0"/>
 						<f:setPropertyActionListener target="#{usuarioBean.usu}"
 							value="#{usuItem}" for="linkDeletar" />
 					</p:commandLink>
@@ -80,8 +114,8 @@
 				<h:outputLabel for="sexo" value="Sexo" />
 				<p:selectOneMenu id="sexo" value="#{usuarioBean.usu.sexo}">
 					<f:selectItem itemLabel="Selecione" itemDisabled="true"/>
-					<f:selectItem itemLabel="Homem" itemValue="true"/>
-					<f:selectItem itemLabel="Mulher" itemValue="false"/>
+					<f:selectItem itemLabel="Homem" itemValue="Homen"/>
+					<f:selectItem itemLabel="Mulher" itemValue="Mulher"/>
 				</p:selectOneMenu>
 				<p:commandButton update=":formUsu:tabelaUsu" oncomplete="PF('dlgCat').hide()"
 					action="#{usuarioBean.inserirUsuario}" value="Adicionar Usuário" ajax="false"/>
@@ -89,4 +123,6 @@
 		</p:dialog>
 	</h:form>
 </h:body>
+</ui:define>
+</ui:composition>
 </html>

@@ -13,27 +13,7 @@ public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idUser;
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idUser;
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-			Usuario other = (Usuario) obj;
-		if (idUser != other.idUser)
-			return false;
-		return true;
-	}
-
+	
 	@Column
 	private String NomeUser;
 	@Column
@@ -76,7 +56,7 @@ public class Usuario implements Serializable {
 	public String getNivel() {
 		return Nivel;
 	}
-	public void setAdmin(String Nivel) {
+	public void setNivel(String Nivel) {
 		this.Nivel = Nivel;
 	}
 	public String getSexo() {
@@ -92,5 +72,26 @@ public class Usuario implements Serializable {
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idUser;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+			Usuario other = (Usuario) obj;
+		if (idUser != other.idUser)
+			return false;
+		return true;
+	}
+
 
 }
