@@ -8,6 +8,11 @@ import org.hibernate.Session;
 import entity.Alimentos;
 
 public class ItemDietaDAO extends MasterDAO{
+	
+	
+	public private void CadastrarItem(i){
+		inserirobjeto(item);
+	}
 
 	
 	public List<Alimentos> listarAlimentos(){
