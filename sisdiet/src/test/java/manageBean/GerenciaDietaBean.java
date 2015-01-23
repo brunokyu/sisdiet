@@ -35,7 +35,7 @@ public class GerenciaDietaBean {
 		
 	}
 	 
-	public void additemDieta(){
+	public void additemDieta(ItemDieta itemDieta){
 		itemdietaDAO.CadastrarItem(item);
 		
 		
